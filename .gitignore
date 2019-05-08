@@ -1,0 +1,11 @@
+VS Code workspace
+*.code-workspace
+
+# Dependencies folder
+node_modules
+
+# Build folder
+public
+
+# Gatsby cache folder
+.cache
