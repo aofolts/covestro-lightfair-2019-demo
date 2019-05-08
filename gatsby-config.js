@@ -14,7 +14,6 @@ module.exports = {
       },
     },
     'gatsby-transformer-sharp',
-    `gatsby-plugin-sitemap`,
     `gatsby-transformer-remark`
   ]
 }

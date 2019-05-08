@@ -1,5 +1,4 @@
 import color from './color'
-import nittiTypewriterRegular from 'fonts/NittiTypewriter-Regular.woff'
 
 const theme = {
   color,
@@ -79,7 +78,7 @@ const theme = {
 theme.fonts = {
   nitti: {
     typewriter: {
-      regular: nittiTypewriterRegular
+      regular: 'arial'
     }
   }
 }
