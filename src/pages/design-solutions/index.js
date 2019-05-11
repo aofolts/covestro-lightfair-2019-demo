@@ -2,31 +2,53 @@ import React,{useState} from 'react'
 import styled from 'styled-components'
 import Layout from '../../components/layout'
 import {Link} from 'gatsby'
-import Header from '../../components/header-page'
 
 const data = {
   solutions: [
     {
       title: 'PAR30 Downlight',
       color: 'blue',
-      description: '1'
+      description: '1',
+      videoKey: '235337101'
     },
     {
       title: 'In-Mold Assembly',
       color: 'green',
-      description: '2'
+      description: '2',
+      videoKey: '233971214'
     },
     {
       title: 'Two Shot Reflector',
       color: 'yellow',
-      description: '3'
+      description: '3',
+      videoKey: '212869493'
     },
   ]
 }
 
-const Nav = styled.nav`
+const Header = styled.header`
+  
+`
+
+const Video = styled.iframe`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: ${props => props.activeItemIndex === props.index ? '100%' : '0'};
+  pointer-events: ${props => props.activeItemIndex === props.index ? 'default' : 'none'};
+`
+
+const Title = styled.h1`
+  font-size: 2rem;
+  margin-bottom: ${props => props.theme.padding.medium};
+`
+
+const Nav = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
 `
 
 const NavItem = styled.div`
@@ -95,6 +117,7 @@ const Exit = styled(Link)`
   width: ${props => props.theme.padding.mediumLarge}; 
   height: ${props => props.theme.padding.mediumLarge};
   background: ${props => props.theme.color.grey.lightest};  
+  display: block;
 `
 
 const LeftExitLine = styled(ExitLine)`
@@ -126,11 +149,29 @@ const UnstyledIndexPage = ({
     )
   })
 
+  const videos = () => {
+    return data.solutions.map((item,index) => {
+      const videoKey = item.videoKey
+
+      const videoQuery = `loop=1&color=ffffff&title=0&byline=0&portrait=0`
+
+      const props = {
+        src: `https://player.vimeo.com/video/${videoKey}?${videoQuery}`,
+        frameborder: 0,
+        allow: `fullscreen`,
+        activeItemIndex,
+        index
+      }
+
+      return <Video {...props}/>
+    })
+  }
+
   return (
     <div className={className}>
       <Layout>
-        <Main>
           <Header title='Design Solutions'>
+            <Title>Design Solutions</Title>
             <Nav>
               <NavMenu>
                 {navItems}
@@ -142,10 +183,9 @@ const UnstyledIndexPage = ({
             </Nav>
           </Header>
           <VideoContainer>
-
+            {videos()}
           </VideoContainer>
           <Description>{data.solutions[activeItemIndex].description}</Description>
-        </Main>
       </Layout>
     </div>
   )
