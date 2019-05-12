@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
 import Layout from '../../components/layout'
-import {Link} from 'gatsby'
 
 const data = {
   solutions: [
@@ -87,10 +86,6 @@ const NavItemTitle = styled.div`
   font-weight: 500;
 `
 
-const Main = styled.main`
-  padding: ${props => props.theme.padding.medium};
-`
-
 const VideoContainer = styled.div`
   width: 100%;
   padding-bottom: 56.25%;
@@ -113,7 +108,7 @@ const ExitLine = styled.div`
   background: ${props => props.theme.color.grey.darkest};
 `
 
-const Exit = styled(Link)`
+const Exit = styled.div`
   width: ${props => props.theme.padding.mediumLarge}; 
   height: ${props => props.theme.padding.mediumLarge};
   background: ${props => props.theme.color.grey.lightest};  
@@ -129,7 +124,8 @@ const RightExitLine = styled(ExitLine)`
 `
 
 const UnstyledIndexPage = ({
-  className
+  className,
+  setActivePageSlug
 }) => {
   const [activeItemIndex,setActiveItemIndex] = useState(0)
 
@@ -160,7 +156,8 @@ const UnstyledIndexPage = ({
         frameborder: 0,
         allow: `fullscreen`,
         activeItemIndex,
-        index
+        index,
+        key: index
       }
 
       return <Video {...props}/>
@@ -176,7 +173,7 @@ const UnstyledIndexPage = ({
               <NavMenu>
                 {navItems}
               </NavMenu>
-              <Exit to='/'>
+              <Exit onClick={() => setActivePageSlug('index')}>
                 <LeftExitLine/>
                 <RightExitLine/>
               </Exit>

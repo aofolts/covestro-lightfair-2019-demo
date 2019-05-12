@@ -80,9 +80,10 @@ const Image = styled.img`
 const UnstyledAccordian = ({
   className,
   color,
-  item
+  item,
+  ...rest
 }) => {
-  const [isOpen,setIsOpen] = useState(false)
+  const [isOpen,setIsOpen] = useState(rest.isOpen)
 
   const handleClick = e => {
     setIsOpen(!isOpen)

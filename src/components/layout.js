@@ -4,7 +4,6 @@ import theme from './theme'
 import Helmet from 'react-helmet'
 
 const Main = styled.main`
-  padding: ${props => props.theme.padding.medium};
 `
 
 const UnstyledLayout = ({

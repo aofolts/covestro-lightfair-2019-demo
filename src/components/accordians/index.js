@@ -7,7 +7,7 @@ const UnstyledAccordianLayout = ({
   items,
   color
 }) => {
-  const accordians = items.map(item => {
+  const accordians = items.map((item,index) => {
     return (
       <Accordian item={item} color={color} key={item.title}/>
     )
