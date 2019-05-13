@@ -27,6 +27,7 @@ const data = {
 
 const Header = styled.header`
   padding: ${props => props.theme.padding.small};
+  padding-top: 0;
 `
 
 const Main = styled.div`
@@ -34,6 +35,7 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  padding: ${props => props.theme.padding.medium};
 `
 
 const Video = styled.iframe`

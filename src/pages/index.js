@@ -9,7 +9,7 @@ import Applications from '../components//applications'
 import CaseStudies from '../components//case-studies'
 import {useState} from 'react'
 
-const videoWidth = '78%'
+const videoWidth = '70%'
 
 const Header = styled.header`
   display: flex;
