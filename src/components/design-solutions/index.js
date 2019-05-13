@@ -35,7 +35,7 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: ${props => props.theme.padding.small} ${props => props.theme.padding.medium};
+  padding: ${props => props.theme.padding.small} 60px;
 `
 
 const Video = styled.iframe`
