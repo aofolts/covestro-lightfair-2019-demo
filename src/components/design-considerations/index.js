@@ -85,7 +85,7 @@ const UnstyledPage = ({
       <Layout>
         <Main>
           <Header>
-            <Title>Materials</Title>
+            <Title>Design Considerations</Title>
             <Exit onClick={() => setActivePageSlug('index')}/>
           </Header>
           <Pad/>
