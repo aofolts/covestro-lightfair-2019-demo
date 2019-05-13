@@ -8,8 +8,9 @@ import DesignConsiderations from '../components/design-considerations'
 import Applications from '../components//applications'
 import CaseStudies from '../components//case-studies'
 import {useState} from 'react'
+import Div100vh from 'react-div-100vh'
 
-const videoWidth = '65%'
+const videoWidth = '70%'
 
 const Header = styled.header`
   display: flex;
@@ -62,9 +63,7 @@ const Video = styled.iframe`
   background: grey;
 `
 
-const Main = styled.div`
-  width: 100vw;
-  height: 100vh;
+const Main = styled(Div100vh)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
