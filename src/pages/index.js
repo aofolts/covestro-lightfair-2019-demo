@@ -9,7 +9,7 @@ import Applications from '../components//applications'
 import CaseStudies from '../components//case-studies'
 import {useState} from 'react'
 
-const videoWidth = '70%'
+const videoWidth = '65%'
 
 const Header = styled.header`
   display: flex;
@@ -27,9 +27,9 @@ const Logo = styled.img`
 `
 
 const Headline = styled.h1`
-  font-size: 22px;
+  font-size: 20px;
   width: 600px;
-  max-width: 70%;
+  max-width: 80%;
   margin-bottom: 0;
   text-transform: uppercase;
   color: ${props => props.theme.color.grey.darkest};
@@ -204,7 +204,7 @@ const NavItem = styled.div`
 `
 
 const NavItemTitle = styled.div`
-  font-size: 18px;
+  font-size: 17px;
   color: ${props => props.theme.color.grey.darkest};
 `
 
