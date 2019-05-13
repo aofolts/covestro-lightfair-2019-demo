@@ -32,8 +32,8 @@ const Header = styled.header`
 `
 
 const Title = styled.div`
- font-size: 25px;
- color: ${props => props.theme.color.green}; 
+  font-size: 25px;
+  color: ${props => props.theme.color.purple}; 
   text-transform: uppercase;
 `
 
@@ -85,11 +85,11 @@ const UnstyledPage = ({
       <Layout>
         <Main>
           <Header>
-            <Title>Materials</Title>
+            <Title>Applications</Title>
             <Exit onClick={() => setActivePageSlug('index')}/>
           </Header>
           <Pad/>
-          <AccordianLayout items={data.solutions} color='pink'/>
+          <AccordianLayout items={data.solutions} color='purple'/>
         </Main>
       </Layout>
     </div>

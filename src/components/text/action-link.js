@@ -43,7 +43,7 @@ const UnstyledActionLink = ({
 
 export const ActionLink = styled(UnstyledActionLink)`
   color: white;
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 500;
   display: inline-block;
   border-bottom: 2px solid #EBDA12;

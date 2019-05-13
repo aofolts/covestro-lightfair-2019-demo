@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{143:function(e,a,n){"use strict";n.r(a);var t=n(0),o=n.n(t),d=n(151),i=Object(d.d)(function(e){var a=e.className;return o.a.createElement("div",{className:a})}).withConfig({displayName:"video__Video",componentId:"twag5e-0"})(["width:100%;padding-bottom:56.25%;background:grey;"]);a.default=i}}]);
-//# sourceMappingURL=component---src-pages-index-video-js-28c86cc0bca6dfddfc2f.js.map

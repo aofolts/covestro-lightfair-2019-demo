@@ -4,9 +4,12 @@ import Layout from '../components/layout'
 import logoSrc from '../images/logo.png'
 import Materials from './covestro-materials'
 import DesignSolutions from './design-solutions'
+import DesignConsiderations from './design-considerations'
+import Applications from './applications'
+import CaseStudies from './case-studies'
 import {useState} from 'react'
 
-const videoWidth = '1100px'
+const videoWidth = '78%'
 
 const Header = styled.header`
   display: flex;
@@ -14,16 +17,19 @@ const Header = styled.header`
   align-items: center;
   margin: ${props => props.theme.padding.small} auto;
   width: ${videoWidth};
+  max-width: 100%;
 `
 
 const Logo = styled.img`
-  width: 15rem;
-  height: 15rem;
-  margin-left: ${props => props.theme.padding.medium};
+  width: 100px;
+  height: 100px;
+  margin-left: ${props => props.theme.padding.small};
 `
 
 const Headline = styled.h1`
-  font-size: 3rem;
+  font-size: 22px;
+  width: 600px;
+  max-width: 70%;
   margin-bottom: 0;
   text-transform: uppercase;
   color: ${props => props.theme.color.grey.darkest};
@@ -79,6 +85,16 @@ const Index = ({
     )
   })
 
+  const videoKey = '235337101'
+
+  const videoQuery = `loop=1&color=ffffff&title=0&byline=0&portrait=0`
+
+  const videoProps = {
+    src: `https://player.vimeo.com/video/${videoKey}?${videoQuery}`,
+    frameborder: 0,
+    allow: `fullscreen`
+  }
+
   return (
     <div className={className}>
       <Layout>
@@ -89,7 +105,7 @@ const Index = ({
           </Header>
           <VideoContainer>
             <IFrameContainer>
-              <Video/>
+              <Video {...videoProps}/>
             </IFrameContainer>
           </VideoContainer>
           <Nav>
@@ -102,8 +118,11 @@ const Index = ({
 }
 
 const pages = {
+  'applications': Applications,
+  'case-studies': CaseStudies,
   'covestro-materials': Materials,
   'design-solutions': DesignSolutions,
+  'design-considerations': DesignConsiderations,
   'index': Index
 }
 
@@ -137,7 +156,7 @@ const data = {
       slug: 'applications',
       title: 'Applications',
       shortTitle: 'Applications',
-      color: 'pink'
+      color: 'purple'
     }
   ]
 }
@@ -151,6 +170,7 @@ data.categoriesBySlug = data.categories.reduce((obj,item) => {
 const Nav = styled.nav`
   padding-top: 0;
   display: flex;
+  margin-top: ${props => props.theme.padding.small};
 `
 
 const NavItem = styled.div`
@@ -158,7 +178,7 @@ const NavItem = styled.div`
   text-align: center;
   background: ${props => props.theme.color.grey.lightest};
   display: block;
-  margin: 0 1rem;
+  margin: 0 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,14 +204,13 @@ const NavItem = styled.div`
 `
 
 const NavItemTitle = styled.div`
-  font-size: 2.2rem;
+  font-size: 18px;
   color: ${props => props.theme.color.grey.darkest};
 `
 
 const PageWrapper = styled.div`
   pointer-events: ${props => props.slug === props.activePageSlug ? 'default' : 'none'};
   opacity: ${props => props.slug === props.activePageSlug ? '100%' : '0'};
-  ${props => console.log(props.activePageSlug)}
   position: fixed;
   left: 50%;
   top: 50%;

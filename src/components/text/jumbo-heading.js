@@ -14,7 +14,7 @@ const JumboHeading = styled.h1`
     if (props.theme.colorMode === 'light') return props.theme.color.grey.darkest
     else return 'white'
   }};
-  font-size: 8.5rem;
+  font-size: 8.5px;
   font-family: nitti, monospace;
   font-weight: 600;
   line-height: ${props => props.theme.lineHeight.small};
@@ -23,7 +23,7 @@ const JumboHeading = styled.h1`
   letter-spacing: -.05em;
   word-spacing: -.15em;
 
-  ${media.phone`font-size: 4rem;`}
+  ${media.phone`font-size: 4px;`}
 `
 
 export default JumboHeading

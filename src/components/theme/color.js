@@ -4,6 +4,7 @@ const color = {
   pink: '#ed028c',
   orange: '#f48232',
   yellow: '#fff003',
+  purple: '#6F5FAA',
   grey: {
     lightest: '#f7f7f7',
     lighter: '#e6e6e6',

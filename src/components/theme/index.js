@@ -40,13 +40,13 @@ const theme = {
   },
   mode: 'light',
   padding: {
-    smallest: '1.5rem',
-    extraSmall: '2rem',
-    small: '2.5rem',
-    mediumSmall: '3.75rem',
-    medium: '5rem',
-    mediumLarge: '7.5rem',
-    large: '10rem'
+    smallest: '15px',
+    extraSmall: '20px',
+    small: '25px',
+    mediumSmall: '37px',
+    medium: '50px',
+    mediumLarge: '75px',
+    large: '100px'
   },
   paragraph: {
     weight: 300,

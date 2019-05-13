@@ -5,19 +5,19 @@ import Layout from '../../components/layout'
 const data = {
   solutions: [
     {
-      title: 'PAR30 Downlight',
-      color: 'blue',
+      title: 'Thermal Performance',
+      color: 'pink',
       description: '1',
       videoKey: '235337101'
     },
     {
-      title: 'In-Mold Assembly',
-      color: 'green',
+      title: 'Cost Savings',
+      color: 'pink',
       description: '2',
       videoKey: '233971214'
     },
     {
-      title: 'Two Shot Reflector',
+      title: 'Weight Savings',
       color: 'yellow',
       description: '3',
       videoKey: '212869493'
@@ -49,7 +49,7 @@ const Video = styled.iframe`
 const Title = styled.h1`
   font-size: 20px;
   margin-bottom: 0;
-  color: ${props => props.theme.color.blue};
+  color: ${props => props.theme.color.grey.darkest};
 `
 
 const Nav = styled.div`
@@ -71,7 +71,7 @@ const NavItem = styled.div`
     position: absolute;
     left: 0;
     bottom: 0;
-    background: ${props => props.theme.color[props.index === props.activeItemIndex ? 'blue' : 'pink']};
+    background: ${props => props.theme.color[props.index === props.activeItemIndex ? 'yellow' : 'pink']};
     content: '';
     width: 100%;
     height: 7px;
@@ -181,7 +181,7 @@ const UnstyledIndexPage = ({
       <Layout>
         <Main>
           <Header title='Design Solutions'>
-            <Title>Design Solutions</Title>
+            <Title>Value Proposition Case Studies</Title>
           </Header>
           <VideoSection>
             <Nav>
@@ -193,9 +193,7 @@ const UnstyledIndexPage = ({
                 <RightExitLine/>
               </Exit>
             </Nav>
-            <VideoContainer>
-              {videos()}
-            </VideoContainer>
+
             <Description>{data.solutions[activeItemIndex].description}</Description>
           </VideoSection>
         </Main>

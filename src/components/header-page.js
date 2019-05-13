@@ -12,7 +12,7 @@ const PlaceholderHeader = styled.header`
 `
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2.5px;
   margin-bottom: ${props => props.theme.padding.mediumSmall};
   color: ${props => props.theme.color.grey.medium};
 `
