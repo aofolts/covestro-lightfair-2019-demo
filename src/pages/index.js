@@ -16,6 +16,7 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   margin: ${props => props.theme.padding.small} auto;
+  margin-bottom: 0;
   width: ${videoWidth};
   max-width: 100%;
 `
@@ -170,7 +171,6 @@ data.categoriesBySlug = data.categories.reduce((obj,item) => {
 const Nav = styled.nav`
   padding-top: 0;
   display: flex;
-  margin-top: ${props => props.theme.padding.small};
 `
 
 const NavItem = styled.div`
