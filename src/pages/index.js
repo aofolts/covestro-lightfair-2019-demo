@@ -85,7 +85,7 @@ const Index = ({
     )
   })
 
-  const videoKey = '235337101'
+  const videoKey = '336116807'
 
   const videoQuery = `loop=1&color=ffffff&title=0&byline=0&portrait=0`
 
@@ -208,12 +208,7 @@ const NavItemTitle = styled.div`
 `
 
 const PageWrapper = styled.div`
-  pointer-events: ${props => props.slug === props.activePageSlug ? 'default' : 'none'};
-  opacity: ${props => props.slug === props.activePageSlug ? '100%' : '0'};
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+  display: ${props => props.slug === props.activePageSlug ? 'default' : 'none'};
   width: 100%;
   height: 100%;
   overflow-y: scroll;
@@ -242,7 +237,9 @@ const UnstyledIndexPage = ({
 
   return (
     <div className={className}>
-      {pagesRenderer()}
+      <Div100vh>
+        {pagesRenderer()}
+      </Div100vh>
     </div>
   )
 }

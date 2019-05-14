@@ -1,33 +1,60 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
 import Layout from '../../components/layout'
+import CostAnimation from './cost-animation.gif'
+import CostBottom from './cost-bottom.jpg'
+import CostTop from './cost-top.jpg'
+import Thermal from './thermal.jpg'
+import WeightAnimation from './weight-animation.gif'
+import WeightTop from './weight-top.jpg'
+import WeightBottom from './weight-bottom.jpg'
 
 const data = {
-  solutions: [
+  caseStudies: [
     {
       title: 'Thermal Performance',
       color: 'pink',
       description: '1',
-      videoKey: '235337101'
+      videoKey: '235337101',
+      images: [
+        Thermal
+      ]
     },
     {
       title: 'Cost Savings',
       color: 'pink',
       description: '2',
-      videoKey: '233971214'
+      videoKey: '233971214',
+      images: [
+        CostTop,
+        CostAnimation,
+        CostBottom
+      ]
     },
     {
       title: 'Weight Savings',
       color: 'yellow',
       description: '3',
-      videoKey: '212869493'
+      videoKey: '212869493',
+      images: [
+        WeightTop,
+        WeightAnimation,
+        WeightBottom
+      ]
     },
   ]
 }
 
 const Header = styled.header`
   padding: ${props => props.theme.padding.small};
-  padding-top: 0;
+  padding-bottom: 0;
+  position: fixed;
+  background: white;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  border-bottom: 2px solid ${props => props.theme.color.grey.lighter};
 `
 
 const Main = styled.div`
@@ -35,22 +62,16 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: ${props => props.theme.padding.medium};
+  padding: ${props => props.theme.padding.small};
 `
 
-const Video = styled.iframe`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: ${props => props.activeItemIndex === props.index ? '100%' : '0'};
-  pointer-events: ${props => props.activeItemIndex === props.index ? 'default' : 'none'};
+const CaseStudy = styled.div`
+  display: ${props => props.activeItemIndex === props.index ? 'block' : 'none'};
 `
 
 const Title = styled.h1`
   font-size: 20px;
-  margin-bottom: 0;
+  margin-bottom: ${props => props.theme.padding.small};
   color: ${props => props.theme.color.grey.darkest};
 `
 
@@ -67,26 +88,23 @@ const NavItem = styled.div`
   align-items: center;
   background: ${props => props.theme.color.grey.lightest};
   margin-right: ${props => props.theme.padding.extraSmall};
+  margin-bottom: 0;
   font-size: 20px;
 
   &:after {
     position: absolute;
     left: 0;
     bottom: 0;
-    background: ${props => props.theme.color[props.index === props.activeItemIndex ? 'yellow' : 'pink']};
+    background: ${
+      props => props.index === props.activeItemIndex 
+        ? props.theme.color.yellow
+        : '#999'
+    };
     content: '';
     width: 100%;
     height: 7px;
   }
 `
-
-// const NavItemTitle = styled.div`
-//   font-size: ${props => props.theme.padding.mediumSmall};
-// `
-
-// const NavItemArrow = styled.div`
-//   font-size: ${props => props.theme.padding.mediumSmall};
-// `
 
 const NavMenu = styled.div`
   display: flex;
@@ -94,17 +112,6 @@ const NavMenu = styled.div`
 
 const NavItemTitle = styled.div`
   font-weight: 500;
-`
-
-const VideoContainer = styled.div`
-  width: 100%;
-  padding-bottom: 56.25%;
-  background: grey;
-`
-
-const Description = styled.div`
-  font-size: 14px;
-  padding: ${props => props.theme.padding.extraSmall} ${props => props.theme.padding.small};
 `
 
 const ExitLine = styled.div`
@@ -137,13 +144,25 @@ const VideoSection = styled.div`
   
 `
 
+const NavWrap = styled.div`
+  width: 100%;
+`
+
+const Image = styled.img`
+  width: 100%;
+`
+
+const Content = styled.div`
+  margin-top: 130px;
+`
+
 const UnstyledIndexPage = ({
   className,
   setActivePageSlug
 }) => {
   const [activeItemIndex,setActiveItemIndex] = useState(0)
 
-  const navItems = data.solutions.map((item,index) => {
+  const navItems = data.caseStudies.map((item,index) => {
     const onClick = () => setActiveItemIndex(index)
 
     const itemProps = {
@@ -159,33 +178,34 @@ const UnstyledIndexPage = ({
     )
   })
 
-  const videos = () => {
-    return data.solutions.map((item,index) => {
-      const videoKey = item.videoKey
-
-      const videoQuery = `loop=1&color=ffffff&title=0&byline=0&portrait=0`
-
+  const caseStudies = () => {
+    return data.caseStudies.map((item,index) => {
       const props = {
-        src: `https://player.vimeo.com/video/${videoKey}?${videoQuery}`,
-        frameborder: 0,
-        allow: `fullscreen`,
         activeItemIndex,
         index,
         key: index
       }
 
-      return <Video {...props}/>
+      const images = () => {
+        return item.images.map(src => {
+          return <Image src={src} key={src}/>
+        })
+      }
+
+      return (
+        <CaseStudy {...props}>
+          {images()}
+        </CaseStudy>
+      )
     })
   }
 
   return (
     <div className={className}>
       <Layout>
-        <Main>
-          <Header title='Design Solutions'>
-            <Title>Value Proposition Case Studies</Title>
-          </Header>
-          <VideoSection>
+        <Header>
+          <Title>Value Proposition Case Studies</Title>
+          <NavWrap>
             <Nav>
               <NavMenu>
                 {navItems}
@@ -195,8 +215,13 @@ const UnstyledIndexPage = ({
                 <RightExitLine/>
               </Exit>
             </Nav>
-
-            <Description>{data.solutions[activeItemIndex].description}</Description>
+          </NavWrap>
+        </Header>
+        <Main>
+          <VideoSection>
+            <Content>
+              {caseStudies()}
+            </Content>
           </VideoSection>
         </Main>
       </Layout>

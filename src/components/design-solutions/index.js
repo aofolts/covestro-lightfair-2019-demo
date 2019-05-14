@@ -7,26 +7,27 @@ const data = {
     {
       title: 'PAR30 Downlight',
       color: 'blue',
-      description: '1',
-      videoKey: '235337101'
+      description: '336116807',
+      videoKey: '334524759'
     },
     {
       title: 'In-Mold Assembly',
       color: 'green',
       description: '2',
-      videoKey: '233971214'
+      videoKey: 'In-Mold Electronics Assembly'
     },
     {
       title: 'Two Shot Reflector',
       color: 'yellow',
       description: '3',
-      videoKey: '212869493'
+      videoKey: 'Thermally Conductive 2K Reflectors'
     },
   ]
 }
 
 const Header = styled.header`
   padding: ${props => props.theme.padding.small};
+  padding-left: 0;
   padding-top: 0;
 `
 
@@ -73,7 +74,11 @@ const NavItem = styled.div`
     position: absolute;
     left: 0;
     bottom: 0;
-    background: ${props => props.theme.color[props.index === props.activeItemIndex ? 'blue' : 'pink']};
+    background: ${
+      props => props.index === props.activeItemIndex 
+        ? props.theme.color.blue
+        : '#999'
+    };
     content: '';
     width: 100%;
     height: 7px;
@@ -105,6 +110,7 @@ const VideoContainer = styled.div`
 const Description = styled.div`
   font-size: 14px;
   padding: ${props => props.theme.padding.extraSmall} ${props => props.theme.padding.small};
+  padding-left: 0;
 `
 
 const ExitLine = styled.div`

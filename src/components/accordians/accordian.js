@@ -23,13 +23,19 @@ const Header = styled.header`
 const TextContent = styled.div`
   width: 50%;
   padding-right: ${props => props.theme.padding.small};
+  font-size: 20px;
+
+  b {
+    font-weight: 500;
+    color: ${props => props.theme.color.pink};
+  }
 `
 
-const SubTitle = styled.div`
-  font-size: 1.8px;
-  font-weight: 500;
-  margin-bottom: ${props => props.theme.padding.small};
-`
+// const SubTitle = styled.div`
+//   font-size: 1.8px;
+//   font-weight: 500;
+//   margin-bottom: ${props => props.theme.padding.small};
+// `
 
 const Copy = styled.div`
   font-size: 16px;
@@ -121,13 +127,12 @@ const UnstyledAccordian = ({
       <Header onClick={e => handleClick(e)}>
         <Nav>
           <Title color={color}>{item.title}</Title>
-          <Descriptor>{item.descriptor || 'Descriptor'}</Descriptor>
+          <Descriptor>{item.subTitle}</Descriptor>
         </Nav>
         <Toggle isOpen={isOpen}/>
       </Header>
       <Body isOpen={isOpen}>
         <TextContent>
-          <SubTitle>{item.subTitle}</SubTitle>
           <Copy dangerouslySetInnerHTML={{__html: item.content}}/>
           {graphic()}
         </TextContent>

@@ -3,17 +3,17 @@ import styled from 'styled-components'
 import Layout from '../../components/layout'
 import AccordianLayout from '../../components/accordians/index'
 
-import tc8030 from './materials/tc8030'
-import tc8010 from './materials/tc8010'
-import tc611 from './materials/tc611'
-import tc110 from './materials/tc110'
+import ENEREF from './applications/eneref'
+import Kenall from './applications/kenall'
+import ALP from './applications/alp'
+import SLP from './applications/slp'
 
 const data = {
-  solutions: [
-    tc8030,
-    tc8010,
-    tc611,
-    tc110
+  applications: [
+    ENEREF,
+    Kenall,
+    ALP,
+    SLP
   ]
 }
 
@@ -29,6 +29,8 @@ const Header = styled.header`
   border-bottom: 2px solid ${props => props.theme.color.grey.lighter};
   width: 100%;
   justify-content: space-between;
+  background: white;
+  z-index: 1000;
 `
 
 const Title = styled.div`
@@ -43,9 +45,6 @@ const Pad = styled.div`
 
 const Main = styled.div`
   padding: ${props => props.theme.padding.medium};
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
 `
 
 const Exit = styled.div`
@@ -89,7 +88,7 @@ const UnstyledPage = ({
             <Exit onClick={() => setActivePageSlug('index')}/>
           </Header>
           <Pad/>
-          <AccordianLayout items={data.solutions} color='purple'/>
+          <AccordianLayout items={data.applications} color='purple'/>
         </Main>
       </Layout>
     </div>
