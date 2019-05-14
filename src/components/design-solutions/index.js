@@ -7,20 +7,20 @@ const data = {
     {
       title: 'PAR30 Downlight',
       color: 'blue',
-      description: '336116807',
+      description: 'Consolidated Downlight Designs',
       videoKey: '334524759'
     },
     {
       title: 'In-Mold Assembly',
       color: 'green',
-      description: '2',
-      videoKey: 'In-Mold Electronics Assembly'
+      description: 'In-Mold Electronics Assembly',
+      videoKey: '336116568'
     },
     {
       title: 'Two Shot Reflector',
       color: 'yellow',
-      description: '3',
-      videoKey: 'Thermally Conductive 2K Reflectors'
+      description: 'Thermally Conductive 2K Reflectors',
+      videoKey: '336116689'
     },
   ]
 }

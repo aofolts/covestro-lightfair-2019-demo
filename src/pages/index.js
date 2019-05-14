@@ -130,7 +130,7 @@ const data = {
   categories: [
     {
       slug: 'design-solutions',
-      title: 'Consolidated Design Solutions',
+      title: 'Cost Saving Design Solutions',
       shortTitle: 'Design Solutions',
       color: 'blue'
     },
