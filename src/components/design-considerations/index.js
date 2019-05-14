@@ -3,17 +3,15 @@ import styled from 'styled-components'
 import Layout from '../../components/layout'
 import AccordianLayout from '../../components/accordians/index'
 
-import tc8030 from './materials/tc8030'
-import tc8010 from './materials/tc8010'
-import tc611 from './materials/tc611'
-import tc110 from './materials/tc110'
+import WallThickness from './items/wall-thickness'
+import DraftAngle from './items/draft-angle'
+import JoiningTechniques from './items/joining-techniques'
 
 const data = {
-  solutions: [
-    tc8030,
-    tc8010,
-    tc611,
-    tc110
+  items: [
+    WallThickness,
+    DraftAngle,
+    JoiningTechniques
   ]
 }
 
@@ -29,6 +27,7 @@ const Header = styled.header`
   border-bottom: 2px solid ${props => props.theme.color.grey.lighter};
   width: 100%;
   justify-content: space-between;
+  z-index: 10;
 `
 
 const Title = styled.div`
@@ -89,7 +88,7 @@ const UnstyledPage = ({
             <Exit onClick={() => setActivePageSlug('index')}/>
           </Header>
           <Pad/>
-          <AccordianLayout items={data.solutions} color='orange'/>
+          <AccordianLayout items={data.items} color='orange'/>
         </Main>
       </Layout>
     </div>

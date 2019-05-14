@@ -8,7 +8,7 @@ const Title = styled.div`
   margin-right: ${props => props.theme.padding.mediumSmall};
 `
 const Descriptor = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 `
 
@@ -23,7 +23,11 @@ const Header = styled.header`
 const TextContent = styled.div`
   width: 50%;
   padding-right: ${props => props.theme.padding.small};
-  font-size: 20px;
+  font-size: 18px;
+
+  p {
+    font-size: 18px;
+  }
 
   b {
     font-weight: 500;
@@ -42,15 +46,23 @@ const Copy = styled.div`
 `
 
 const Body = styled.div`
-  display: ${props => props.isOpen === true ? 'flex' : 'none'};
+  display: ${props => props.isOpen === true ? 'block' : 'none'};
   padding: ${props => props.theme.padding.small};
-  justify-content: space-between;
-  font-size: 20px;
+  font-size: 18px;
 
   & li {
     list-style-type: disc;
-    font-size: 20px;
+    font-size: 18px;
+
+    & + li {
+      margin-top: 10px;
+    }
   }
+`
+
+const HalfWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 const Nav = styled.div`
@@ -78,10 +90,15 @@ const ImageContainer = styled.div`
   justify-content: center;
 `
 
-const Image = styled.img`
+const HalfImage = styled.img`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+`
+
+const Image = styled.img`
+  width: 100%;
+  display: block;
 `
 
 const LearnMore = styled.a`
@@ -111,7 +128,7 @@ const UnstyledAccordian = ({
   const image = () => {
     if (!item.image) return null
 
-    return <Image src={item.image}/>
+    return <HalfImage src={item.image}/>
   }
 
   const link = () => {
@@ -120,6 +137,30 @@ const UnstyledAccordian = ({
     else return (
       <LearnMore href={item.link} target='__blank'>Click here to learn more</LearnMore>
     )
+  }
+
+  const topImage = () => {
+    if (!item.topImage) return null
+
+    return <Image src={item.topImage}/>
+  }
+
+  const bottomImage = () => {
+    if (!item.bottomImage) return null
+
+    return <Image src={item.bottomImage}/>
+  }
+
+  const leftImage = () => {
+    if (!item.leftImage) return null
+
+    return <HalfImage src={item.leftImage}/>
+  }
+
+  const rightImage = () => {
+    if (!item.rightImage) return null
+
+    return <HalfImage src={item.rightImage}/>
   }
 
   return (
@@ -132,14 +173,20 @@ const UnstyledAccordian = ({
         <Toggle isOpen={isOpen}/>
       </Header>
       <Body isOpen={isOpen}>
-        <TextContent>
-          <Copy dangerouslySetInnerHTML={{__html: item.content}}/>
-          {graphic()}
-        </TextContent>
-        <ImageContainer>
-          {image()}
-          {link()}
-        </ImageContainer>
+        {topImage()}
+        <HalfWrap>
+          <TextContent>
+            <Copy dangerouslySetInnerHTML={{__html: item.content}}/>
+            {graphic()}
+            {leftImage()}
+          </TextContent>
+          <ImageContainer>
+            {image()}
+            {link()}
+            {rightImage()}
+          </ImageContainer>
+        </HalfWrap>
+        {bottomImage()}
       </Body>
     </div>
   )
