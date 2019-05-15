@@ -12,7 +12,7 @@ const content = `
 `
 
 export default {
-  title: 'Makrolon® TC820',
+  title: 'Makrolon® TC8030',
   image,
   graphic,
   content,

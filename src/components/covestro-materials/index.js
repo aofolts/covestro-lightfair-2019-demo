@@ -29,6 +29,7 @@ const Header = styled.header`
   border-bottom: 2px solid ${props => props.theme.color.grey.lighter};
   width: 100%;
   justify-content: space-between;
+  z-index: 1000;
 `
 
 const Title = styled.div`
@@ -78,7 +79,8 @@ const Exit = styled.div`
 
 const UnstyledPage = ({
   className,
-  setActivePageSlug
+  setActivePageSlug,
+  activePageSlug
 }) => {
   return (
     <div className={className}>
@@ -89,7 +91,7 @@ const UnstyledPage = ({
             <Exit onClick={() => setActivePageSlug('index')}/>
           </Header>
           <Pad/>
-          <AccordianLayout items={data.solutions} color='pink'/>
+          <AccordianLayout items={data.solutions} color='pink' activePageSlug={activePageSlug}/>
         </Main>
       </Layout>
     </div>

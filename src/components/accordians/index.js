@@ -5,11 +5,12 @@ import Accordian from './accordian'
 const UnstyledAccordianLayout = ({
   className,
   items,
-  color
+  color,
+  activePageSlug
 }) => {
   const accordians = items.map((item,index) => {
     return (
-      <Accordian item={item} color={color} key={item.title}/>
+      <Accordian item={item} color={color} key={item.title} activePageSlug={activePageSlug}/>
     )
   })
 

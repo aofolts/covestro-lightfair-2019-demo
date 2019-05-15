@@ -60,7 +60,6 @@ const Video = styled.iframe`
   transform: translate(-50%,-50%);
   width: 100%;
   height: 100%;
-  background: grey;
 `
 
 const Main = styled(Div100vh)`

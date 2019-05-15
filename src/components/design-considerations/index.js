@@ -6,12 +6,24 @@ import AccordianLayout from '../../components/accordians/index'
 import WallThickness from './items/wall-thickness'
 import DraftAngle from './items/draft-angle'
 import JoiningTechniques from './items/joining-techniques'
+import Decorations from './items/decorations'
+import RidgedInserts from './items/ridged-inserts'
+import GateRunner from './items/gate-runner-systems'
+import Ejection from './items/ejection'
+import MoldCooling from './items/mold-cooling'
+import Computational from './items/computational-fluid-dynamics'
 
 const data = {
   items: [
     WallThickness,
     DraftAngle,
-    JoiningTechniques
+    JoiningTechniques,
+    Decorations,
+    RidgedInserts,
+    GateRunner,
+    Ejection,
+    MoldCooling,
+    Computational
   ]
 }
 
@@ -77,7 +89,8 @@ const Exit = styled.div`
 
 const UnstyledPage = ({
   className,
-  setActivePageSlug
+  setActivePageSlug,
+  activePageSlug
 }) => {
   return (
     <div className={className}>
@@ -88,7 +101,7 @@ const UnstyledPage = ({
             <Exit onClick={() => setActivePageSlug('index')}/>
           </Header>
           <Pad/>
-          <AccordianLayout items={data.items} color='orange'/>
+          <AccordianLayout items={data.items} color='orange' activePageSlug={activePageSlug}/>
         </Main>
       </Layout>
     </div>

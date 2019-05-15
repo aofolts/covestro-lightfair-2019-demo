@@ -10,10 +10,10 @@ import SLP from './applications/slp'
 
 const data = {
   applications: [
-    ENEREF,
-    Kenall,
+    SLP,
     ALP,
-    SLP
+    Kenall,
+    ENEREF
   ]
 }
 
@@ -77,6 +77,7 @@ const Exit = styled.div`
 
 const UnstyledPage = ({
   className,
+  activePageSlug,
   setActivePageSlug
 }) => {
   return (
@@ -88,7 +89,7 @@ const UnstyledPage = ({
             <Exit onClick={() => setActivePageSlug('index')}/>
           </Header>
           <Pad/>
-          <AccordianLayout items={data.applications} color='purple'/>
+          <AccordianLayout items={data.applications} color='purple' activePageSlug={activePageSlug}/>
         </Main>
       </Layout>
     </div>

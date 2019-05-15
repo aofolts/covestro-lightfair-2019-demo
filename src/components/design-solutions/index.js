@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 import Layout from '../layout'
 
@@ -145,9 +145,14 @@ const VideoSection = styled.div`
 
 const UnstyledIndexPage = ({
   className,
-  setActivePageSlug
+  setActivePageSlug,
+  activePageSlug
 }) => {
   const [activeItemIndex,setActiveItemIndex] = useState(0)
+
+  useEffect(() => {
+    if (activePageSlug === 'index') setActiveItemIndex(0)
+  })
 
   const navItems = data.solutions.map((item,index) => {
     const onClick = () => setActiveItemIndex(index)
@@ -189,7 +194,7 @@ const UnstyledIndexPage = ({
       <Layout>
         <Main>
           <Header title='Design Solutions'>
-            <Title>Design Solutions</Title>
+            <Title>Cost Saving Design Solutions</Title>
           </Header>
           <VideoSection>
             <Nav>

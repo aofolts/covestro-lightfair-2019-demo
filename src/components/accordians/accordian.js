@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import styled from 'styled-components'
 
 const Title = styled.div`
@@ -9,7 +9,7 @@ const Title = styled.div`
 `
 const Descriptor = styled.div`
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
 `
 
 const Header = styled.header`
@@ -24,6 +24,7 @@ const TextContent = styled.div`
   width: 50%;
   padding-right: ${props => props.theme.padding.small};
   font-size: 18px;
+  margin-bottom: ${props => props.theme.padding.small};
 
   p {
     font-size: 18px;
@@ -46,8 +47,9 @@ const Copy = styled.div`
 `
 
 const Body = styled.div`
-  display: ${props => props.isOpen === true ? 'block' : 'none'};
-  padding: ${props => props.theme.padding.small};
+  transition: max-height .2s ease-in-out;
+  max-height: ${props => props.isOpen === true ? '1000px' : '0'};
+  overflow: hidden;
   font-size: 18px;
 
   & li {
@@ -101,17 +103,27 @@ const Image = styled.img`
   display: block;
 `
 
+const TopImage = styled(Image)`
+  margin-bottom: ${props => props.theme.padding.small};
+`
+
+
 const LearnMore = styled.a`
   text-decoration: underline;
   font-size: 18px;
   display: block;
 `
 
+const Content = styled.div`
+  padding: ${props => props.theme.padding.small};
+`
+
 const UnstyledAccordian = ({
   className,
   color,
   item,
-  ...rest
+  activePageSlug,
+  ...rest,
 }) => {
   const [isOpen,setIsOpen] = useState(rest.isOpen)
 
@@ -142,7 +154,7 @@ const UnstyledAccordian = ({
   const topImage = () => {
     if (!item.topImage) return null
 
-    return <Image src={item.topImage}/>
+    return <TopImage src={item.topImage}/>
   }
 
   const bottomImage = () => {
@@ -163,6 +175,18 @@ const UnstyledAccordian = ({
     return <HalfImage src={item.rightImage}/>
   }
 
+  const images = () => {
+    if (!item.images) return null
+
+    return item.images.map(src => {
+      return <Image src={src} key={src}/>
+    })
+  }
+
+  useEffect(() => {
+    if (activePageSlug === 'index' && isOpen === true) setIsOpen(false)
+  })
+
   return (
     <div className={className}>
       <Header onClick={e => handleClick(e)}>
@@ -170,23 +194,26 @@ const UnstyledAccordian = ({
           <Title color={color}>{item.title}</Title>
           <Descriptor>{item.subTitle}</Descriptor>
         </Nav>
-        <Toggle isOpen={isOpen}/>
+        <Toggle isOpen={isOpen}  activePageSlug={activePageSlug}/>
       </Header>
-      <Body isOpen={isOpen}>
-        {topImage()}
-        <HalfWrap>
-          <TextContent>
-            <Copy dangerouslySetInnerHTML={{__html: item.content}}/>
-            {graphic()}
-            {leftImage()}
-          </TextContent>
-          <ImageContainer>
-            {image()}
-            {link()}
-            {rightImage()}
-          </ImageContainer>
-        </HalfWrap>
-        {bottomImage()}
+      <Body isOpen={isOpen} activePageSlug={activePageSlug}>
+        <Content>
+          {topImage()}
+          <HalfWrap>
+            <TextContent>
+              <Copy dangerouslySetInnerHTML={{__html: item.content}}/>
+              {graphic()}
+              {leftImage()}
+            </TextContent>
+            <ImageContainer>
+              {image()}
+              {link()}
+              {rightImage()}
+            </ImageContainer>
+          </HalfWrap>
+          {bottomImage()}
+          {images()}
+        </Content>
       </Body>
     </div>
   )

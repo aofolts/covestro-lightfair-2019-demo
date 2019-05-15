@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 import Layout from '../../components/layout'
 import CostAnimation from './cost-animation.gif'
@@ -153,14 +153,21 @@ const Image = styled.img`
 `
 
 const Content = styled.div`
+  width: 80%;
+  margin: 0 auto;
   margin-top: 130px;
 `
 
 const UnstyledIndexPage = ({
   className,
-  setActivePageSlug
+  setActivePageSlug,
+  activePageSlug
 }) => {
   const [activeItemIndex,setActiveItemIndex] = useState(0)
+
+  useEffect(() => {
+    if (activePageSlug === 'index') setActiveItemIndex(0)
+  })
 
   const navItems = data.caseStudies.map((item,index) => {
     const onClick = () => setActiveItemIndex(index)
