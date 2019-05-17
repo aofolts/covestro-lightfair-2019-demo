@@ -34,6 +34,10 @@ const TextContent = styled.div`
     font-weight: 500;
     color: ${props => props.theme.color.pink};
   }
+
+  strong {
+    font-weight: 500;
+  }
 `
 
 // const SubTitle = styled.div`
