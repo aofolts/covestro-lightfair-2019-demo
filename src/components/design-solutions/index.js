@@ -36,7 +36,7 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  width: 95%;
+  width: 94%;
   margin: 0 auto;
   padding: ${props => props.theme.padding.small} 60px;
 `
@@ -127,7 +127,7 @@ const ExitLine = styled.div`
 `
 
 const Exit = styled.div`
-  width: ${props => props.theme.padding.mediumLarge}; 
+  width: 60px; 
   height: 60px;
   background: ${props => props.theme.color.grey.lightest};  
   display: block;
