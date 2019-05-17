@@ -7,7 +7,6 @@ import WallThickness from './items/wall-thickness'
 import DraftAngle from './items/draft-angle'
 import JoiningTechniques from './items/joining-techniques'
 import Decorations from './items/decorations'
-import RidgedInserts from './items/ridged-inserts'
 import GateRunner from './items/gate-runner-systems'
 import Ejection from './items/ejection'
 import MoldCooling from './items/mold-cooling'
@@ -19,7 +18,6 @@ const data = {
     DraftAngle,
     JoiningTechniques,
     Decorations,
-    RidgedInserts,
     GateRunner,
     Ejection,
     MoldCooling,
