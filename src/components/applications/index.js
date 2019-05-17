@@ -34,7 +34,7 @@ const Header = styled.header`
 `
 
 const Title = styled.div`
-  font-size: 25px;
+  font-size: 27px;
   color: ${props => props.theme.color.purple}; 
   text-transform: uppercase;
 `
@@ -85,7 +85,7 @@ const UnstyledPage = ({
       <Layout>
         <Main>
           <Header>
-            <Title>Applications</Title>
+            <Title>Applications &amp; Sustainability</Title>
             <Exit onClick={() => setActivePageSlug('index')}/>
           </Header>
           <Pad/>

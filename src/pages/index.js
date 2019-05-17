@@ -29,7 +29,7 @@ const Logo = styled.img`
 `
 
 const Headline = styled.h1`
-  font-size: 20px;
+  font-size: 24px;
   width: 600px;
   max-width: 80%;
   margin-bottom: 0;
@@ -50,7 +50,6 @@ const VideoContainer = styled.div`
 
 const IFrameContainer = styled.div`
   padding-bottom: 56.25%;
-  background: grey;
 `
 
 const Video = styled.iframe`
@@ -86,12 +85,13 @@ const Index = ({
 
   const videoKey = '336116807'
 
-  const videoQuery = `loop=1&color=ffffff&title=0&byline=0&portrait=0`
+  const videoQuery = `loop=1&color=ffffff&title=0&byline=0&portrait=0&autoplay=1`
 
   const videoProps = {
     src: `https://player.vimeo.com/video/${videoKey}?${videoQuery}`,
     frameborder: 0,
-    allow: `fullscreen`
+    allow: `autoplay`,
+    muted: 1
   }
 
   return (
@@ -129,7 +129,7 @@ const data = {
   categories: [
     {
       slug: 'design-solutions',
-      title: 'Cost Saving Design Solutions',
+      title: 'Cost-Saving Design Solutions',
       shortTitle: 'Design Solutions',
       color: 'blue'
     },
@@ -153,8 +153,8 @@ const data = {
     },
     {
       slug: 'applications',
-      title: 'Applications',
-      shortTitle: 'Applications',
+      title: 'Applications & Sustainability',
+      shortTitle: 'Applications & Sustainability',
       color: 'purple'
     }
   ]
@@ -181,6 +181,9 @@ const NavItem = styled.div`
   justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
+  flex: 1;
+  text-align: center;
+  justify-content: center;
 
   &:first-child {
     margin-left: 0;
@@ -201,9 +204,11 @@ const NavItem = styled.div`
   }
 `
 
-const NavItemTitle = styled.div`
-  font-size: 17px;
+const NavItemTitle = styled.span`
+  font-size: 14px;
+  font-weight: 500;
   color: ${props => props.theme.color.grey.darkest};
+  text-align: center;
 `
 
 const PageWrapper = styled.div`

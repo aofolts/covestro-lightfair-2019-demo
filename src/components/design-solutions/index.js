@@ -5,19 +5,19 @@ import Layout from '../layout'
 const data = {
   solutions: [
     {
-      title: 'PAR30 Downlight',
+      title: 'Consolidated Designs',
       color: 'blue',
       description: 'Consolidated Downlight Designs',
       videoKey: '334524759'
     },
     {
-      title: 'In-Mold Assembly',
+      title: 'In-Mold Electronics Assembly',
       color: 'green',
       description: 'In-Mold Electronics Assembly',
       videoKey: '336116568'
     },
     {
-      title: 'Two Shot Reflector',
+      title: 'Cool Reflectors',
       color: 'yellow',
       description: 'Thermally Conductive 2K Reflectors',
       videoKey: '336116689'
@@ -26,7 +26,7 @@ const data = {
 }
 
 const Header = styled.header`
-  padding: ${props => props.theme.padding.small};
+  padding: ${props => props.theme.padding.extraSmall};
   padding-left: 0;
   padding-top: 0;
 `
@@ -50,7 +50,7 @@ const Video = styled.iframe`
 `
 
 const Title = styled.h1`
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 0;
   color: ${props => props.theme.color.blue};
 `
@@ -68,7 +68,7 @@ const NavItem = styled.div`
   align-items: center;
   background: ${props => props.theme.color.grey.lightest};
   margin-right: ${props => props.theme.padding.extraSmall};
-  font-size: 20px;
+  font-size: 19px;
 
   &:after {
     position: absolute;
@@ -108,7 +108,7 @@ const VideoContainer = styled.div`
 `
 
 const Description = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   padding: ${props => props.theme.padding.extraSmall} ${props => props.theme.padding.small};
   padding-left: 0;
 `
@@ -179,7 +179,7 @@ const UnstyledIndexPage = ({
       const props = {
         src: `https://player.vimeo.com/video/${videoKey}?${videoQuery}`,
         frameborder: 0,
-        allow: `fullscreen`,
+        muted: 1,
         activeItemIndex,
         index,
         key: index

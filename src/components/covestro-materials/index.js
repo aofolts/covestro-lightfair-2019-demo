@@ -33,7 +33,7 @@ const Header = styled.header`
 `
 
 const Title = styled.div`
- font-size: 25px;
+ font-size: 27px;
  color: ${props => props.theme.color.green}; 
   text-transform: uppercase;
 `
