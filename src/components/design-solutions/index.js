@@ -36,7 +36,7 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  width: 98%;
+  width: 95%;
   margin: 0 auto;
   padding: ${props => props.theme.padding.small} 60px;
 `
@@ -70,7 +70,7 @@ const NavItem = styled.div`
   align-items: center;
   background: ${props => props.theme.color.grey.lightest};
   margin-right: ${props => props.theme.padding.extraSmall};
-  font-size: 19px;
+  font-size: 18px;
 
   &:after {
     position: absolute;
