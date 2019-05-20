@@ -52,7 +52,7 @@ const Copy = styled.div`
 
 const Body = styled.div`
   transition: max-height .5s ease-in-out;
-  max-height: ${props => props.isOpen === true ? '1000px' : '0'};
+  max-height: ${props => props.isOpen === true ? '9000px' : '0'};
   overflow: hidden;
   font-size: 18px;
 
