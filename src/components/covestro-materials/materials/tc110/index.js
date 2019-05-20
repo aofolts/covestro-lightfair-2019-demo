@@ -5,7 +5,7 @@ const content = `
   <ul>
     <li>Electrically insulating TC grade</li>
     <li>Processed by injection molding or extrusion</li>
-    <li>Outstanding impact resistance compared to other TC plastics</li>
+    <li>Improved impact resistance compared to other TC plastics</li>
     <li>White in color</li>
   </ul>
 `

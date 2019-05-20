@@ -3,7 +3,8 @@ import graphic from './graphic.jpg'
 
 const content = `
   <ul>
-    <li>High thermal conductivity</li>
+    <li>Improved flow for injection molding</li>
+    <li>Medium thermal conductivity</li>
     <li>LED heat sinks (metal replacement)</li>
     <li>Components for heat dissipation</li>
   </ul>

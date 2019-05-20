@@ -8,6 +8,7 @@ const content = `
     <li>Electronics insert-molding capable</li>
     <li>Injection molding grade</li>
     <li>Color: Gray/Black</li>
+    <li>High stiffness</li>
   </ul>
 `
 
